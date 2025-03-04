@@ -3,22 +3,22 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner input = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
 
         // km bilgisini alan blok
         System.out.print("Mesafeyi km türünden giriniz: ");
-        int km = input.nextInt();
+        double km = scanner.nextDouble();
 
         // yaş bilgisi alan blok
         System.out.print("Yaşınızı giriniz: ");
-        int age = input.nextInt();
+        int age = scanner.nextInt();
 
         // yolculuk tipi bilgisi alan blok
         System.out.print("Yolculuk tipini giriniz (1 => Tek Yön , 2 => Gidiş Dönüş): ");
-        int type = input.nextInt();
+        int type = scanner.nextInt();
 
         // km veya yaş 0 dan küçükse veya yolculuk tipi girdisi 1 veya 2 değilse kullanıcı hata mesajı alacak.
-        if (km <= 0 || age <= 0 || (type != 1 && type != 2)) {
+        if (km <= 0 || age < 0 || (type != 1 && type != 2)) {
             System.out.println("Hatalı Veri Girdiniz !");
         } else {
             double base_amount = km * 0.10; // km başına 0.10 tl
@@ -37,8 +37,8 @@ public class Main {
 
             // yolculuk tipine göre indirim hesaplayan blok
             if (type == 2) {
-                double type_discount = new_amount * 0.20; //yüzde 20'lik gidiş dönüş bilet indirimi hesabı
-                new_amount = (new_amount - type_discount) * 2; //indirim sonrası hem gidiş hem dönüş için toplam tutar hesabı.
+                double type2discount = new_amount * 0.20; //yüzde 20'lik gidiş dönüş bilet indirimi hesabı
+                new_amount = (new_amount - type2discount) * 2; //indirim sonrası hem gidiş hem dönüş için toplam tutar hesabı.
             }
 
             System.out.println("Toplam Tutar = " + new_amount + " TL"); //toplam tutarı ekrana yazdıran kod bloğu
